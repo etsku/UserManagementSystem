@@ -1,2 +1,2 @@
 # UserManagementSystem
-Simple program to add ja search users in database.
+Simple program to add and search users in database.
