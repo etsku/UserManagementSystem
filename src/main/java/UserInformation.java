@@ -1,8 +1,12 @@
 package main.userInfo;
 
 import java.util.Scanner;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-public class UserInformation {
+
+public class  UserInformation {
     Scanner input = new Scanner(System.in);
 
 
@@ -20,7 +24,9 @@ public class UserInformation {
             System.out.println("Do you want to add another person: Y/N");
             String argument = input.nextLine();
             if (argument.equals("N")) {
-                System.out.println("Your information: " + name + ", " + department + ", " + position);
+                SimpleDateFormat datestamp = new SimpleDateFormat("dd/MM/yyyy.HH:mm:ss");
+                String timestamp = datestamp.format(new Date());
+                System.out.println("Your information: " + name + ", " + department + ", " + position + ", " + timestamp);
                 System.out.println("Exiting program...");
                 break;
                 // CREATE TIMESTAMP FOR QUERYING

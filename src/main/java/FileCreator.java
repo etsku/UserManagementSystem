@@ -1,4 +1,5 @@
 package main.FileCreator;
+import java.Paths.FolderPaths;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -8,12 +9,13 @@ import java.util.Scanner;
 import static java.Paths.FolderPaths.FILE_LOCATION;
 
 // GIT PULL FIRST TO GET PREVIOUS CHANGES FROM GITHUB, OTHERWISE GIT MIGHT HAVE PROBLEMS WHEN PUSHING TO REPOSITORY
-protected class create_file implements FILE_FOLDERS {
+protected class create_file implements FolderPaths {
 
     void create_new_file() throws IOException{
 
         // limit file size
-
+        // inputs need to separated to by month so inputs will be assigned to right files
+        // maybe timestamp -> pattern search -> correct folder
 
 
         // Create object to ask file name
