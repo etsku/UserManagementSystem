@@ -34,6 +34,21 @@ public class File_Handling implements FolderPaths {
             }
             Calendar parse_timestamp = Calendar.getInstance();
             parse_timestamp.setTime(date);
+            int year = parse_timestamp.get(Calendar.YEAR);
+            int month = parse_timestamp.get(Calendar.MONTH) + 1;
+
+            String path_dir = ParentDirectory.getAbsolutePath() + File.separator + year;
+            File dir_year = new File(path_dir);
+            if(!dir_year.exists()){
+                dir_year.mkdir();
+            }
+            String month_dir = path_dir + File.separator + month;
+            File dir_month = new File(month_dir);
+            if(!dir_month.exists()){
+                dir_month.mkdir();
+            }
+            System.out.println(" Directories created ");
+
         }
 
 
