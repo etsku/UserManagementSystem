@@ -1,15 +1,18 @@
 package main.userInfo;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import java.util.Scanner;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
+// MULTIMAP FOR STORING INPUTS
 public class  UserInformation {
     Scanner input = new Scanner(System.in);
 
-
+// Refactor to use set and get methods, because inputs are now inside function
     public void user_input() {
         while (true) {
             System.out.println("Enter your name: ");
@@ -34,5 +37,13 @@ public class  UserInformation {
 
         }
     }
+
+}
+
+class MultimappingInputs extends UserInformation{
+    Multimap <String,String> inputs_map = ArrayListMultimap.create();
+
+
+
 }
 
