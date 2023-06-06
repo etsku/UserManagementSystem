@@ -1,4 +1,4 @@
 # UserManagementSystem
-Simple program to add and search users in database.
-Still early stage so much features are missing, but they will be added.
+Project is currectly under development and new features will be added, when they are ready.
+Idea of project is to enter employee data like name, department and position. That data will be stored in map, where it will be written to csv file to transfer it to postgresql database. In database information will be filtered to match data to correct table. User is also capable to search data from database and retrieve it back from database.
 
