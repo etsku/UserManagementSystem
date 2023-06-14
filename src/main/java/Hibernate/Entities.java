@@ -18,4 +18,23 @@ public class Entities {
 
     @Column(name="Position", length = 25, nullable = false, unique = false)
     private String Position;
-}
+
+    public void setName(String Name){
+        this.Name = Name;
+    }
+    public String getName(){
+        return Name;
+    }
+    public void setDepartment(String Department){
+        this.Department = Department;
+    }
+    public String getDepartment(){
+        return Department;
+    }
+    public void setPosition(String Position){
+        this.Position = Position;
+    }
+    public String getPosition(){
+        return Position;
+    }
+    }
