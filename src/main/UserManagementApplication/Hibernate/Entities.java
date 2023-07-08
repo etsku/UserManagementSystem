@@ -37,4 +37,11 @@ public class Entities {
     public String getPosition(){
         return Position;
     }
+
+    @Override
+    public String ShowUserInfo(){
+        return "Employee ID: " + EmployeeID + " Employee name: " + Name + " Employee department: " + Department +
+        " Employee position: " + Position + " ";
+    }
+
     }
