@@ -1,4 +1,4 @@
-package UserManagementApplication.Hibernate.Testing;
+package Testing;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class UserInfoEntityTest {
     @Test
     // Accessibility, no null values
-    Hibernate.Entities test_information
+    Hibernate.Entities user_input(){}
 
 
 }
