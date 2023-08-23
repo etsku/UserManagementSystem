@@ -1,12 +1,12 @@
 package Hibernate;
 
 import javax.persistence.*;
-
+// Private modifier restrict access outside off class -> reason for getter and setter methods
 @Entity(name="Personal")
 @Table(name="EmployeeInformation")
 public class Entities {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int EmployeeID;
 
     // ADD COLUMN SPECIFICATIONS
@@ -19,6 +19,9 @@ public class Entities {
     @Column(name="Position", length = 25, nullable = false, unique = false)
     private String Position;
 
+    public int getEmployeeID(){
+        return  EmployeeID;
+    }
     public void setName(String Name){
         this.Name = Name;
     }
@@ -38,7 +41,7 @@ public class Entities {
         return Position;
     }
 
-    @Override
+
     public String ShowUserInfo(){
         return "Employee ID: " + EmployeeID + " Employee name: " + Name + " Employee department: " + Department +
         " Employee position: " + Position + " ";

@@ -1,13 +1,23 @@
 package Testing;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import Hibernate.Entities;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 
 public class UserInfoEntityTest {
-    @Test
+
     // Accessibility, no null values
-    Hibernate.Entities user_input(){}
+    private Hibernate.Entities test_entity;
+
+    @BeforeEach
+    public void setUpObject(){
+        test_entity = new Entities();
+    }
+
 
 
 }
