@@ -4,9 +4,9 @@ import javax.persistence.*;
 // Private modifier restrict access outside off class -> reason for getter and setter methods
 @Entity(name="Personal")
 @Table(name="EmployeeInformation")
-public class Entities {
+public class EmployeeEntities {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // GeneratedValue automatically generates primary key
     private int EmployeeID;
 
     // ADD COLUMN SPECIFICATIONS
