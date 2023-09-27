@@ -1,50 +1,62 @@
 package Testing;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import Hibernate.Entities;
+
+import UserManagementApplication.Hibernate.EmployeeEntities;
+
+import static  org.junit.jupiter.api.Assertions.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import javax.transaction.Transactional;
+
 
 
 public class UserInfoEntityTest {
-
-    // Accessibility, no null values
-    private Hibernate.Entities test_entity;
+    private SessionFactory sessionFactory;
+    private Session session;
+    private Transaction transaction;
 
     @BeforeEach
-    public void setUpObject(){
-        test_entity = new Entities();
-    }
-    @Test
-    public void testSetName(){
-        test_entity.setName("Jack");
-        assertEquals("Jack",test_entity.getName());
-    }
-    @Test
-    public void testSetDepartment(){
-        test_entity.setDepartment("Finance");
-        assertEquals("Finance", test_entity.getDepartment());
-    }
-    @Test
-    public void testSetPosition(){
-        test_entity.setPosition("CFO");
-        assertEquals("CFO",test_entity.getPosition());
-    }
-    @Test
-    public void testShowUserInfo(){
-        test_entity.setName("Jack");
-        test_entity.setDepartment("IT");
-        test_entity.setPosition("Developer");
-        String expectedOutput =  "Employee ID: " + test_entity.getEmployeeID() + " Employee name: " + test_entity.getName() +
-                " Employee department: " + test_entity.getDepartment() +
-                " Employee position: " + test_entity.getPosition() + " ";
-        assertEquals(expectedOutput,test_entity.ShowUserInfo());
+    public void setUp(){
+        // Get configuration information from hibernate.cfg.xml file
+        Configuration conf = new Configuration().configure("hibernate.cfg.xml");
+        // Build sessionfactory
+        sessionFactory = conf.buildSessionFactory();
 
+        // Open session and transaction
+        session = sessionFactory.openSession();
+        transaction = session.beginTransaction();
     }
 
+    @AfterEach
+    public void ShutDown(){
+        transaction.commit();
+        session.close();
+    }
 
+    @Test
+    public void testEntities(){
+        EmployeeEntities person = new EmployeeEntities();
+        person.setName("Tim");
+        person.setPosition("Analyst");
+        person.setDepartment("Finance");
+        session.save(person);
+
+        // Test if ID is greater than 0
+        assertTrue(person.getEmployeeID()>0);
+
+        EmployeeEntities fetchPerson = session.get(EmployeeEntities.class,person.getEmployeeID());
+        assertNotNull(fetchPerson);
+        assertEquals("Tim",fetchPerson.getName());
+        assertEquals("Analyst",fetchPerson.getPosition());
+        assertEquals("Finance",fetchPerson.getDepartment());
+
+    }
 
 }
