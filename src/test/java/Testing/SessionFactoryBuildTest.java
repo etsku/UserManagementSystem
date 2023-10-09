@@ -13,12 +13,14 @@ public class SessionFactoryBuildTest {
     // Void-keyword can be used to update or set object current values ( internal state), but not returning object state
     @Test
     // Test for getting SessionFactory
-    public void testToGetFactory(){
+    public void testToGetFactory() {
         // Reason to use static is that we can call functions using class name (see below)
         SessionFactory sessionFactory = DatabaseOpener.getSessionFactory();
         assertNotNull(sessionFactory);
     }
-    @Test
+
+}
+    //@Test
     // Test for closing SessionFactory
     /*public void testToShutdownFactory(){
         SessionFactory sessionFactory = DatabaseOpener.getSessionFactory();
@@ -31,9 +33,9 @@ public class SessionFactoryBuildTest {
 
 
 
-    }
-    @AfterAll
+
+    /*@AfterAll
     // Perform clean up after tests
     public static void Clean(){}
+*/
 
-}

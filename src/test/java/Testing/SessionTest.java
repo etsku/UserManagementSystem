@@ -12,11 +12,14 @@ import org.junit.jupiter.api.BeforeEach;
 import javax.transaction.Status;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 
 // CHECK IF THERE ARE MODIFICATIONS TO BE DONE TO MAKE CODE WORK CORRECTLY (IT INSERT DATA!!!)
 // AlSO CREATE THIS CODE TO BE TEST!
 public class SessionTest{
+    @Mock
     private SessionFactory sessionFactory;
     private Session session;
 
